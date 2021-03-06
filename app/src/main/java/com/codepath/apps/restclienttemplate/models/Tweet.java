@@ -1,12 +1,17 @@
 package com.codepath.apps.restclienttemplate.models;
 
+import com.codepath.apps.restclienttemplate.TimeFormatter;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
+import org.parceler.ParcelClass;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Tweet {
 
     String body, createdAt;
@@ -14,6 +19,8 @@ public class Tweet {
     boolean favorited, retweeted;
     int favoriteCount, retweetCount;
     long id;
+
+    public Tweet(){}
 
     public static Tweet fromJSON(JSONObject ob) throws JSONException {
         Tweet tweet = new Tweet();
@@ -68,5 +75,9 @@ public class Tweet {
 
     public long getId() {
         return id;
+    }
+
+    public String getFormattedTimestamp(){
+        return TimeFormatter.getTimeDifference(createdAt);
     }
 }

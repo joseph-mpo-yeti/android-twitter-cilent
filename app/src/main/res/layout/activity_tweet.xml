@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivProfileImgView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        tools:src="@tools:sample/avatars"
+        android:layout_margin="0dp"
+        />
+
+    <TextView
+        android:id="@+id/tvScreenNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="user name"
+        android:layout_marginStart="5dp"
+        android:textStyle="bold"
+        android:ellipsize="end"
+        android:layout_toRightOf="@id/ivProfileImgView"
+        />
+
+    <TextView
+        android:layout_marginStart="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHandle"
+        tools:text="\@jojo"
+        android:layout_toEndOf="@id/ivVerifiedView"
+        />
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_twitter_verified_badge"
+        android:layout_toEndOf="@id/tvScreenNameView"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:id="@+id/ivVerifiedView"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvBodyView"
+        android:layout_margin="5dp"
+        android:text="Text Body"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:layout_below="@id/tvScreenNameView"
+        android:layout_toEndOf="@id/ivProfileImgView"
+        />
+
+
+</RelativeLayout>

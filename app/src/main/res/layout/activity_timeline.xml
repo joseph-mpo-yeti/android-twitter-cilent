@@ -9,18 +9,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:elevation="0dp"
         android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="?actionBarStyle"
-        app:titleTextColor="@color/white"
-        android:background="@color/twitter_primary"
-        app:title="Timeline"
-        />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/timelineToolbar"
+            android:background="@color/twitter_primary"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:onClick="refresh"
+                    android:id="@+id/refreshTweets"
+                    android:layout_width="36dp"
+                    android:layout_centerInParent="true"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_twitter_white"/>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,6 +49,19 @@
 
 
     </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:elevation="10dp"
+        android:onClick="newTweet"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_edit"
+        android:backgroundTint="@color/twitter_primary"
+        android:tint="@color/white" />
 
 
 </RelativeLayout>

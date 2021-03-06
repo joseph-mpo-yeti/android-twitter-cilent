@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -38,7 +40,7 @@ public class TimelineActivity extends AppCompatActivity {
         tBD = ActivityTimelineBinding.inflate(getLayoutInflater());
         setContentView(tBD.getRoot());
 
-        getSupportActionBar().hide();
+        setSupportActionBar(tBD.timelineToolbar);
 
         tweetList = new ArrayList<>();
         adapter = new TweetsAdapter(tweetList, this);
@@ -72,6 +74,13 @@ public class TimelineActivity extends AppCompatActivity {
                 populateHomeTimeline();
             }
         });
+
+    }
+
+
+    public void newTweet(View v){
+        Intent i = new Intent(getApplicationContext(), NewTweetActivity.class);
+        startActivity(i);
     }
 
     private void loadMoreData() {
@@ -114,5 +123,18 @@ public class TimelineActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "It failed", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!client.isAuthenticated()){
+            setResult(RESULT_OK);
+            finish();
+        }
+    }
+
+    public void refresh(View view) {
+        populateHomeTimeline();
     }
 }

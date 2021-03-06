@@ -26,7 +26,6 @@
 
     <TextView
         android:layout_marginStart="5dp"
-        android:maxLength="16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvHandle"
@@ -50,6 +49,8 @@
         android:id="@+id/tvBody"
         android:layout_margin="5dp"
         android:text="Text Body"
+        android:autoLink="all"
+        android:linksClickable="true"
         android:layout_below="@id/tvScreenName"
         android:layout_toEndOf="@id/ivProfileImg"
         />

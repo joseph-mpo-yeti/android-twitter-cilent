@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +16,23 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.R;
+import com.codepath.apps.restclienttemplate.TimeFormatter;
+import com.codepath.apps.restclienttemplate.TweetActivity;
 import com.codepath.apps.restclienttemplate.databinding.ItemTweetBinding;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.google.android.material.timepicker.TimeFormat;
 
 import org.jetbrains.annotations.NotNull;
+import org.parceler.Parcel;
+import org.parceler.Parcels;
 
 import java.util.List;
 
 public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder> {
+
+    interface TweetOnClickListener {
+        void onClick(View v);
+    }
 
     List<Tweet> tweets;
     Context context;
@@ -80,9 +90,21 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
                     .apply(requestOptions)
                     .into(iBD.ivProfileImg);
             iBD.tvBody.setText(tweet.getBody());
-            iBD.tvHandle.setText('@'+tweet.getUser().getScreenName());
+            iBD.tvHandle.setText(String.format(
+                    "@%s • %s",
+                    tweet.getUser().getScreenName(),
+                    tweet.getFormattedTimestamp()
+            ));
             iBD.tvScreenName.setText(tweet.getUser().getName());
             iBD.ivVerified.setVisibility(tweet.getUser().isVerified() ? View.VISIBLE : View.GONE);
+            iBD.getRoot().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, TweetActivity.class);
+                    intent.putExtra("tweet", Parcels.wrap(tweet));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
