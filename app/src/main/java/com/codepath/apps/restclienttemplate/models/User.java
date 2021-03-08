@@ -29,7 +29,7 @@ public class User {
     }
 
     public String getPublicImgUrl() {
-        return publicImgUrl;
+        return publicImgUrl.replace("_normal", "");
     }
 
     public boolean isVerified() {

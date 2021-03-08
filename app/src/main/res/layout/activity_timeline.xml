@@ -8,60 +8,47 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:elevation="0dp"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:elevation="4dp"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/timelineToolbar"
-            android:background="@color/twitter_primary"
+            android:id="@+id/toolbar"
+            android:elevation="4dp"
+            android:background="@color/white"
+            app:titleTextColor="@color/twitter_primary"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
+            android:layout_height="?actionBarSize"/>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:onClick="refresh"
-                    android:id="@+id/refreshTweets"
-                    android:layout_width="36dp"
-                    android:layout_centerInParent="true"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_twitter_white"/>
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/swipeContainer"
+            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/rvTimeline"
-            />
+            android:layout_height="match_parent">
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="match_parent"
+                android:id="@+id/rvTimeline"
+                />
 
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/btnAddTweet"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:elevation="10dp"
-        android:onClick="newTweet"
-        android:layout_margin="20dp"
-        android:src="@drawable/ic_edit"
+        android:layout_alignParentEnd="true"
+        android:elevation="12dp"
+        android:layout_margin="16dp"
         android:backgroundTint="@color/twitter_primary"
-        android:tint="@color/white" />
-
+        android:src="@drawable/ic_edit"
+        android:tint="@color/white"
+        />
 
 </RelativeLayout>

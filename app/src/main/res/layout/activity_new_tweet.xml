@@ -1,9 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="8dp"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_round_close_32"
+        android:id="@+id/cancel_tweet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
-</RelativeLayout>
+    <RelativeLayout
+        app:layout_constraintTop_toBottomOf="@+id/send_tweet"
+        app:layout_constraintStart_toEndOf="@+id/user_profile_img"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/rlReplyTo"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvReplyTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Replying to"
+            android:textColor="@color/twitter_gray"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_toEndOf="@+id/tvReplyTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Replying to"
+            android:id="@+id/tvReplyToDisplayName"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/twitter_primary"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/user_profile_img"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        tools:src="@tools:sample/avatars"
+        app:layout_constraintTop_toBottomOf="@+id/rlReplyTo"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/edit_tweet"
+        android:layout_width="0dp"
+        android:background="@android:color/transparent"
+        android:layout_height="250dp"
+        android:hint="What's happening?"
+        android:padding="4dp"
+        android:layout_marginStart="8dp"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_profile_img"
+        app:layout_constraintTop_toTopOf="@+id/user_profile_img" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="70dp"
+        android:text="Tweet"
+        android:elevation="200dp"
+        android:id="@+id/send_tweet"
+        android:background="@color/button_disabled"
+        android:textColor="@color/white"
+        android:layout_height="30dp"
+        android:textSize="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tweet_size"
+        android:layout_width="0dp"
+        tools:text="22"
+        android:textColor="@color/twitter_primary"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_tweet"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
