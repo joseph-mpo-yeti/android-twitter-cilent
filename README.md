@@ -38,14 +38,17 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <div style="display: inline-flex;">
-  <img src='./tw2_1.gif' title='Video Walkthrough 1' width='260' alt='Video Walkthrough 1' style="margin-right: 10px" />
-  <img src='./tw2_2.gif' title='Video Walkthrough 2' width='260' alt='Video Walkthrough 2' style="margin-right: 10px" />
-  <img src='./tw2_3.gif' title='Video Walkthrough 3' width='260' alt='Video Walkthrough 3' />
+  <img src='./tw2_1.gif' title='Video Walkthrough 1' width='260' alt='Video Walkthrough 1' style="margin-right: 40px" />
+  <img src='./tw2_2.gif' title='Video Walkthrough 2' width='260' alt='Video Walkthrough 2' />
 </div>
 
 <div style="display: inline-flex;">
-  <img src='./tw2_4.gif' title='Video Walkthrough 4' width='260' alt='Video Walkthrough 4' style="margin-right: 10px" />
-  <img src='./tw2_5.gif' title='Video Walkthrough 5' width='260' alt='Video Walkthrough 5' style="margin-right: 10px" />
+  <img src='./tw2_3.gif' title='Video Walkthrough 3' width='260' alt='Video Walkthrough 3' style="margin-right: 40px"/>
+  <img src='./tw2_4.gif' title='Video Walkthrough 4' width='260' alt='Video Walkthrough 4' />
+</div>
+
+<div style="display: inline-flex;">
+  <img src='./tw2_5.gif' title='Video Walkthrough 5' width='260' alt='Video Walkthrough 5' style="margin-right: 40px" />
   <img src='./tw2_6.gif' title='Video Walkthrough 6' width='260' alt='Video Walkthrough 6' />
 </div>
 
